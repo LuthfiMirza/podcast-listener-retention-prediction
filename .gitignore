@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+venv/
+.env
+.DS_Store
+models/
+reports/*.csv
+reports/*.json
+reports/figures/*.png
+data/raw/*.csv
+data/processed/*.csv
+
+.matplotlib/
+.cache/
+
+# External/public datasets and local experiment tracking
+data/external/lastfm/
+mlruns/
+.pytest_cache/
+.coverage

@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./experiments:/app/experiments:ro
+      - ./data:/app/data:ro
+    environment:
+      PYTHONUNBUFFERED: "1"

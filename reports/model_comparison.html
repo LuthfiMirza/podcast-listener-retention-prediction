@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>User Engagement Model Comparison</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; color: #1f2937; }
+    table.metrics { border-collapse: collapse; min-width: 720px; }
+    .metrics th, .metrics td { border: 1px solid #d1d5db; padding: 8px 12px; text-align: right; }
+    .metrics th:first-child, .metrics td:first-child { text-align: left; }
+    .metrics th { background: #f3f4f6; }
+    img { max-width: 900px; width: 100%; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>User Engagement Model Comparison</h1>
+  <table border="1" class="dataframe metrics">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>roc_auc</th>
+      <th>pr_auc</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>balanced_accuracy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>logistic_regression</td>
+      <td>0.8750</td>
+      <td>0.9989</td>
+      <td>0.9973</td>
+      <td>0.7399</td>
+      <td>0.8495</td>
+      <td>0.7450</td>
+    </tr>
+    <tr>
+      <td>random_forest_tuned</td>
+      <td>0.6915</td>
+      <td>NaN</td>
+      <td>0.9920</td>
+      <td>1.0000</td>
+      <td>0.9960</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>random_forest</td>
+      <td>0.5348</td>
+      <td>0.9945</td>
+      <td>0.9920</td>
+      <td>1.0000</td>
+      <td>0.9960</td>
+      <td>0.5000</td>
+    </tr>
+  </tbody>
+</table>
+  <h2>ROC Curves</h2>
+  <img src="figures/roc_comparison.png" alt="ROC curve comparison">
+</body>
+</html>

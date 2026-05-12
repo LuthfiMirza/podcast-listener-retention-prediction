@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Monitoring Dashboard</title>
+<style>
+body{font-family:Arial,sans-serif;margin:40px;color:#111827}.cards{display:flex;gap:16px;flex-wrap:wrap}.card{border:1px solid #ddd;border-radius:8px;padding:16px;min-width:150px;background:#f9fafb}table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border:1px solid #ddd;padding:8px;text-align:left}th{background:#f3f4f6}.HIGH{color:#b91c1c;font-weight:bold}.MEDIUM{color:#b45309;font-weight:bold}.LOW{color:#047857;font-weight:bold}</style>
+</head>
+<body>
+<h1>User Engagement Monitoring Dashboard</h1>
+<div id="app"></div>
+<script id="dashboard-data" type="application/json">{"metrics": {"threshold": 0.18, "optimized_metric": "f1", "precision": 0.9664, "recall": 0.985, "f1": 0.9756, "accuracy": 0.954, "roc_auc": 0.9688}, "drift": {"new_data_path": "data/processed/engagement_features.csv", "reference_rows": 2500, "current_rows": 2500, "high_drift_features": 0, "medium_drift_features": 0, "features": [{"feature": "sessions", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "avg_session_duration", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "skip_rate", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "replay_rate", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "content_variety_score", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "days_since_last_session", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "completion_rate", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "peak_hour_activity", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "engagement_intensity", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "skip_completion_gap", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "recency_risk_score", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "high_skip_user", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}, {"feature": "low_completion_user", "psi": 0.0, "ks_statistic": 0.0, "ks_pvalue": 1.0, "drift_level": "LOW"}]}, "retrain_history": [{"timestamp": "2026-05-12T11:11:17.528946+00:00", "triggered": false, "dry_run": true, "threshold_auc": 0.92, "high_drift_features": 0, "roc_auc": 0.9688, "reasons": []}], "prediction_volume": [{"file": "batch_predictions_20260512T111440Z.csv", "rows": 2}]}</script>
+<script>
+const data = JSON.parse(document.getElementById('dashboard-data').textContent);
+const metricKeys = ['roc_auc','f1','recall','precision','accuracy','threshold'];
+function table(rows, columns) {
+  if (!rows.length) return '<p>No data available.</p>';
+  return '<table><thead><tr>' + columns.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>' +
+    rows.map(r => '<tr>' + columns.map(c => `<td class="${r[c] || ''}">${r[c] ?? ''}</td>`).join('') + '</tr>').join('') + '</tbody></table>';
+}
+const metricCards = metricKeys.map(k => `<div class="card"><strong>${k}</strong><br>${data.metrics[k] ?? 'n/a'}</div>`).join('');
+const driftRows = data.drift.features || [];
+const retrainRows = data.retrain_history || [];
+const volumeRows = data.prediction_volume || [];
+document.getElementById('app').innerHTML = `
+  <h2>Current Model Metrics</h2><div class="cards">${metricCards}</div>
+  <h2>Drift Status</h2>${table(driftRows, ['feature','psi','ks_statistic','ks_pvalue','drift_level'])}
+  <h2>Retrain History</h2>${table(retrainRows, ['timestamp','triggered','dry_run','threshold_auc','high_drift_features','roc_auc','reasons'])}
+  <h2>Prediction Volume</h2>${table(volumeRows, ['file','rows'])}
+`;
+</script>
+</body></html>

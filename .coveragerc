@@ -1,0 +1,14 @@
+[run]
+omit =
+    src/build_dashboard.py
+    src/compare_models.py
+    src/evaluate.py
+    src/feature_importance.py
+    src/retrain_trigger.py
+    src/train.py
+    src/tune.py
+    src/seed_everything.py
+
+[report]
+show_missing = True
+skip_empty = True

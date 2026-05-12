@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Listener Retention Model Comparison</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; color: #1f2937; }
+    table.metrics { border-collapse: collapse; min-width: 720px; }
+    .metrics th, .metrics td { border: 1px solid #d1d5db; padding: 8px 12px; text-align: right; }
+    .metrics th:first-child, .metrics td:first-child { text-align: left; }
+    .metrics th { background: #f3f4f6; }
+    img { max-width: 900px; width: 100%; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>Listener Retention Model Comparison</h1>
+  <table border="1" class="dataframe metrics">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>roc_auc</th>
+      <th>pr_auc</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>balanced_accuracy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>risk_random_forest_tuned</td>
+      <td>0.9803</td>
+      <td>0.9715</td>
+      <td>0.9688</td>
+      <td>0.9208</td>
+      <td>0.9442</td>
+      <td>0.9566</td>
+    </tr>
+    <tr>
+      <td>risk_random_forest</td>
+      <td>0.9753</td>
+      <td>0.9703</td>
+      <td>0.9894</td>
+      <td>0.9208</td>
+      <td>0.9538</td>
+      <td>0.9591</td>
+    </tr>
+    <tr>
+      <td>risk_logistic_regression</td>
+      <td>0.9476</td>
+      <td>0.8832</td>
+      <td>0.7480</td>
+      <td>0.9406</td>
+      <td>0.8333</td>
+      <td>0.9302</td>
+    </tr>
+  </tbody>
+</table>
+  <h2>ROC Curves</h2>
+  <img src="figures/roc_comparison.png" alt="ROC curve comparison">
+</body>
+</html>

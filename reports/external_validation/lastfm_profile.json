@@ -1,0 +1,510 @@
+{
+  "files": {
+    "timestamp": {
+      "path": "/Applications/XAMPP/xamppfiles/htdocs/User Engagement Prediction/data/external/lastfm/userid-timestamp-artid-artname-traid-traname.tsv",
+      "encoding": "utf-8",
+      "separator": "tab",
+      "shape": [
+        19150868,
+        6
+      ],
+      "sampled_rows_for_stats": 1000000,
+      "columns": [
+        "user_id",
+        "timestamp",
+        "artist_id",
+        "artist_name",
+        "track_id",
+        "track_name"
+      ],
+      "dtypes_sample": {
+        "user_id": "object",
+        "timestamp": "object",
+        "artist_id": "object",
+        "artist_name": "object",
+        "track_id": "object",
+        "track_name": "object"
+      },
+      "nulls_sample": {
+        "user_id": 0,
+        "timestamp": 0,
+        "artist_id": 31609,
+        "artist_name": 0,
+        "track_id": 134384,
+        "track_name": 0
+      },
+      "sample_rows": [
+        {
+          "user_id": "user_000001",
+          "timestamp": "2009-05-04T23:08:57Z",
+          "artist_id": "f1b1cf71-bd35-4e99-8624-24a6e15f133a",
+          "artist_name": "Deep Dish",
+          "track_id": "<NA>",
+          "track_name": "Fuck Me Im Famous (Pacha Ibiza)-09-28-2007"
+        },
+        {
+          "user_id": "user_000001",
+          "timestamp": "2009-05-04T13:54:10Z",
+          "artist_id": "a7f7df4a-77d8-4f12-8acd-5c60c93f4de8",
+          "artist_name": "\u5742\u672c\u9f8d\u4e00",
+          "track_id": "<NA>",
+          "track_name": "Composition 0919 (Live_2009_4_15)"
+        },
+        {
+          "user_id": "user_000001",
+          "timestamp": "2009-05-04T13:52:04Z",
+          "artist_id": "a7f7df4a-77d8-4f12-8acd-5c60c93f4de8",
+          "artist_name": "\u5742\u672c\u9f8d\u4e00",
+          "track_id": "<NA>",
+          "track_name": "Mc2 (Live_2009_4_15)"
+        },
+        {
+          "user_id": "user_000001",
+          "timestamp": "2009-05-04T13:42:52Z",
+          "artist_id": "a7f7df4a-77d8-4f12-8acd-5c60c93f4de8",
+          "artist_name": "\u5742\u672c\u9f8d\u4e00",
+          "track_id": "<NA>",
+          "track_name": "Hibari (Live_2009_4_15)"
+        },
+        {
+          "user_id": "user_000001",
+          "timestamp": "2009-05-04T13:42:11Z",
+          "artist_id": "a7f7df4a-77d8-4f12-8acd-5c60c93f4de8",
+          "artist_name": "\u5742\u672c\u9f8d\u4e00",
+          "track_id": "<NA>",
+          "track_name": "Mc1 (Live_2009_4_15)"
+        }
+      ],
+      "timestamp_summary": {
+        "note": "Stats computed on first 1,000,000 rows for interactive inspection.",
+        "parsed_timestamp_nulls_sample": 0,
+        "date_range_sample": [
+          "2005-02-28 23:20:27+00:00",
+          "2009-06-19 17:12:30+00:00"
+        ],
+        "active_users_sample": 41,
+        "unique_artists_sample": 23007,
+        "total_listens_sample": 1000000,
+        "tracks_per_user_stats_sample": {
+          "count": 41.0,
+          "mean": 24390.243902439026,
+          "std": 21489.074116606895,
+          "min": 354.0,
+          "25%": 9458.0,
+          "50%": 18411.0,
+          "75%": 36315.0,
+          "max": 96436.0
+        }
+      }
+    },
+    "plays": {
+      "path": "/Applications/XAMPP/xamppfiles/htdocs/User Engagement Prediction/data/external/lastfm/usersha1-artmbid-artname-plays.tsv",
+      "encoding": "utf-8",
+      "separator": "tab",
+      "shape": [
+        17559530,
+        4
+      ],
+      "sampled_rows_for_stats": 200000,
+      "columns": [
+        "user_sha1",
+        "artist_id",
+        "artist_name",
+        "plays"
+      ],
+      "dtypes_sample": {
+        "user_sha1": "object",
+        "artist_id": "object",
+        "artist_name": "object",
+        "plays": "int64"
+      },
+      "nulls_sample": {
+        "user_sha1": 0,
+        "artist_id": 2527,
+        "artist_name": 0,
+        "plays": 0
+      },
+      "sample_rows": [
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "artist_id": "3bd73256-3905-4f3a-97e2-8b341527f805",
+          "artist_name": "betty blowtorch",
+          "plays": 2137
+        },
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "artist_id": "f2fb0ff0-5679-42ec-a55c-15109ce6e320",
+          "artist_name": "die \u00c4rzte",
+          "plays": 1099
+        },
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "artist_id": "b3ae82c2-e60b-4551-a76d-6620f1b456aa",
+          "artist_name": "melissa etheridge",
+          "plays": 897
+        },
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "artist_id": "3d6bbeb7-f90e-4d10-b440-e153c0d10b53",
+          "artist_name": "elvenking",
+          "plays": 717
+        },
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "artist_id": "bbd2ffd7-17f4-4506-8572-c1ea58c3f9a8",
+          "artist_name": "juliette & the licks",
+          "plays": 706
+        }
+      ],
+      "plays_summary": {
+        "note": "Stats computed on first 200,000 rows.",
+        "play_count_distribution_sample": {
+          "count": 200000.0,
+          "mean": 218.8929,
+          "std": 680.4963134255415,
+          "min": 1.0,
+          "25%": 36.0,
+          "50%": 96.0,
+          "75%": 227.0,
+          "max": 135392.0
+        },
+        "top_artists_sample": {
+          "the beatles": 382809,
+          "radiohead": 330794,
+          "linkin park": 215559,
+          "coldplay": 205805,
+          "muse": 186598,
+          "pink floyd": 177729,
+          "metallica": 168052,
+          "nine inch nails": 167275,
+          "depeche mode": 160579,
+          "christina aguilera": 159190
+        },
+        "median_plays_per_user_sample": 6232.0,
+        "users_sample": 4089,
+        "artists_sample": 34725
+      }
+    },
+    "userid_profile": {
+      "path": "/Applications/XAMPP/xamppfiles/htdocs/User Engagement Prediction/data/external/lastfm/userid-profile.csv",
+      "encoding": "utf-8",
+      "separator": "comma",
+      "shape": [
+        992,
+        5
+      ],
+      "sampled_rows_for_stats": 992,
+      "columns": [
+        "user_id",
+        "gender",
+        "age",
+        "country",
+        "registered"
+      ],
+      "dtypes_sample": {
+        "user_id": "object",
+        "gender": "object",
+        "age": "float64",
+        "country": "object",
+        "registered": "object"
+      },
+      "nulls_sample": {
+        "user_id": 0,
+        "gender": 108,
+        "age": 706,
+        "country": 85,
+        "registered": 8
+      },
+      "sample_rows": [
+        {
+          "user_id": "user_000001",
+          "gender": "m",
+          "age": "<NA>",
+          "country": "Japan",
+          "registered": "Aug 13, 2006"
+        },
+        {
+          "user_id": "user_000002",
+          "gender": "f",
+          "age": "<NA>",
+          "country": "Peru",
+          "registered": "Feb 24, 2006"
+        },
+        {
+          "user_id": "user_000003",
+          "gender": "m",
+          "age": 22.0,
+          "country": "United States",
+          "registered": "Oct 30, 2005"
+        },
+        {
+          "user_id": "user_000004",
+          "gender": "f",
+          "age": "<NA>",
+          "country": "<NA>",
+          "registered": "Apr 26, 2006"
+        },
+        {
+          "user_id": "user_000005",
+          "gender": "m",
+          "age": "<NA>",
+          "country": "Bulgaria",
+          "registered": "Jun 29, 2006"
+        }
+      ],
+      "profile_summary": {
+        "age_distribution": {
+          "count": 286.0,
+          "mean": 25.367132867132867,
+          "std": 8.314951877982313,
+          "min": 3.0,
+          "25%": 21.0,
+          "50%": 23.0,
+          "75%": 28.0,
+          "max": 103.0
+        },
+        "gender_distribution": {
+          "m": 502,
+          "f": 382,
+          "nan": 108
+        },
+        "country_distribution": {
+          "United States": 228,
+          "United Kingdom": 126,
+          "nan": 85,
+          "Poland": 50,
+          "Germany": 36,
+          "Norway": 35,
+          "Finland": 32,
+          "Canada": 32,
+          "Turkey": 28,
+          "Italy": 27,
+          "Sweden": 24,
+          "Netherlands": 23,
+          "Russian Federation": 22,
+          "Australia": 22,
+          "Brazil": 20,
+          "Spain": 17,
+          "France": 14,
+          "Mexico": 12,
+          "Belgium": 9,
+          "Argentina": 9
+        }
+      }
+    },
+    "usersha1_profile_csv": {
+      "path": "/Applications/XAMPP/xamppfiles/htdocs/User Engagement Prediction/data/external/lastfm/usersha1-profile.csv",
+      "encoding": "utf-8",
+      "separator": "comma",
+      "shape": [
+        359347,
+        5
+      ],
+      "sampled_rows_for_stats": 359347,
+      "columns": [
+        "user_sha1",
+        "gender",
+        "age",
+        "country",
+        "registered"
+      ],
+      "dtypes_sample": {
+        "user_sha1": "object",
+        "gender": "object",
+        "age": "float64",
+        "country": "object",
+        "registered": "object"
+      },
+      "nulls_sample": {
+        "user_sha1": 0,
+        "gender": 32775,
+        "age": 74900,
+        "country": 0,
+        "registered": 0
+      },
+      "sample_rows": [
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "gender": "f",
+          "age": 22.0,
+          "country": "Germany",
+          "registered": "Feb 1, 2007"
+        },
+        {
+          "user_sha1": "00001411dc427966b17297bf4d69e7e193135d89",
+          "gender": "f",
+          "age": "<NA>",
+          "country": "Canada",
+          "registered": "Dec 4, 2007"
+        },
+        {
+          "user_sha1": "00004d2ac9316e22dc007ab2243d6fcb239e707d",
+          "gender": "<NA>",
+          "age": "<NA>",
+          "country": "Germany",
+          "registered": "Sep 1, 2006"
+        },
+        {
+          "user_sha1": "000063d3fe1cf2ba248b9e3c3f0334845a27a6bf",
+          "gender": "m",
+          "age": 19.0,
+          "country": "Mexico",
+          "registered": "Apr 28, 2008"
+        },
+        {
+          "user_sha1": "00007a47085b9aab8af55f52ec8846ac479ac4fe",
+          "gender": "m",
+          "age": 28.0,
+          "country": "United States",
+          "registered": "Jan 27, 2006"
+        }
+      ],
+      "profile_summary": {
+        "age_distribution": {
+          "count": 284447.0,
+          "mean": 25.09804638473951,
+          "std": 21.665741783529242,
+          "min": -1337.0,
+          "25%": 20.0,
+          "50%": 23.0,
+          "75%": 28.0,
+          "max": 1002.0
+        },
+        "gender_distribution": {
+          "m": 241642,
+          "f": 84930,
+          "nan": 32775
+        },
+        "country_distribution": {
+          "United States": 67044,
+          "Germany": 31651,
+          "United Kingdom": 29902,
+          "Poland": 20987,
+          "Russian Federation": 19833,
+          "Brazil": 14534,
+          "Sweden": 13122,
+          "Spain": 13051,
+          "Finland": 11579,
+          "Netherlands": 9650,
+          "Canada": 8679,
+          "France": 7529,
+          "Italy": 7525,
+          "Australia": 7135,
+          "Japan": 6637,
+          "Turkey": 6452,
+          "Norway": 5155,
+          "Mexico": 4834,
+          "Czech Republic": 4774,
+          "Ukraine": 4396
+        }
+      }
+    },
+    "usersha1_profile_tsv": {
+      "path": "/Applications/XAMPP/xamppfiles/htdocs/User Engagement Prediction/data/external/lastfm/usersha1-profile.tsv",
+      "encoding": "utf-8",
+      "separator": "tab",
+      "shape": [
+        359347,
+        5
+      ],
+      "sampled_rows_for_stats": 359347,
+      "columns": [
+        "user_sha1",
+        "gender",
+        "age",
+        "country",
+        "registered"
+      ],
+      "dtypes_sample": {
+        "user_sha1": "object",
+        "gender": "object",
+        "age": "float64",
+        "country": "object",
+        "registered": "object"
+      },
+      "nulls_sample": {
+        "user_sha1": 0,
+        "gender": 32775,
+        "age": 74900,
+        "country": 0,
+        "registered": 0
+      },
+      "sample_rows": [
+        {
+          "user_sha1": "00000c289a1829a808ac09c00daf10bc3c4e223b",
+          "gender": "f",
+          "age": 22.0,
+          "country": "Germany",
+          "registered": "Feb 1, 2007"
+        },
+        {
+          "user_sha1": "00001411dc427966b17297bf4d69e7e193135d89",
+          "gender": "f",
+          "age": "<NA>",
+          "country": "Canada",
+          "registered": "Dec 4, 2007"
+        },
+        {
+          "user_sha1": "00004d2ac9316e22dc007ab2243d6fcb239e707d",
+          "gender": "<NA>",
+          "age": "<NA>",
+          "country": "Germany",
+          "registered": "Sep 1, 2006"
+        },
+        {
+          "user_sha1": "000063d3fe1cf2ba248b9e3c3f0334845a27a6bf",
+          "gender": "m",
+          "age": 19.0,
+          "country": "Mexico",
+          "registered": "Apr 28, 2008"
+        },
+        {
+          "user_sha1": "00007a47085b9aab8af55f52ec8846ac479ac4fe",
+          "gender": "m",
+          "age": 28.0,
+          "country": "United States",
+          "registered": "Jan 27, 2006"
+        }
+      ],
+      "profile_summary": {
+        "age_distribution": {
+          "count": 284447.0,
+          "mean": 25.09804638473951,
+          "std": 21.665741783529242,
+          "min": -1337.0,
+          "25%": 20.0,
+          "50%": 23.0,
+          "75%": 28.0,
+          "max": 1002.0
+        },
+        "gender_distribution": {
+          "m": 241642,
+          "f": 84930,
+          "nan": 32775
+        },
+        "country_distribution": {
+          "United States": 67044,
+          "Germany": 31651,
+          "United Kingdom": 29902,
+          "Poland": 20987,
+          "Russian Federation": 19833,
+          "Brazil": 14534,
+          "Sweden": 13122,
+          "Spain": 13051,
+          "Finland": 11579,
+          "Netherlands": 9650,
+          "Canada": 8679,
+          "France": 7529,
+          "Italy": 7525,
+          "Australia": 7135,
+          "Japan": 6637,
+          "Turkey": 6452,
+          "Norway": 5155,
+          "Mexico": 4834,
+          "Czech Republic": 4774,
+          "Ukraine": 4396
+        }
+      }
+    }
+  }
+}

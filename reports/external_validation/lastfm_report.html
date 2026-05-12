@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Last.fm External Validation Report</title>
+<style>body{font-family:Arial,sans-serif;margin:40px;color:#111827}table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border:1px solid #ddd;padding:8px}th{background:#f3f4f6}.note{background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:6px}</style>
+</head><body>
+<h1>Last.fm External Validation Report</h1>
+<h2>Dataset Overview</h2>
+<ul>
+<li>Users in inspected timestamp sample: 41</li>
+<li>Date range sample: ['2005-02-28 23:20:27+00:00', '2009-06-19 17:12:30+00:00']</li>
+<li>Total listens inspected: 1000000</li>
+<li>Generated Last.fm proxy rows: 500</li>
+</ul>
+<p class="note">Stats computed on first 1,000,000 rows for interactive inspection. The timestamp file is large and sorted by user, so this validation is a public-data sanity check, not a full replacement for real Noice data.</p>
+<h2>Column Mapping</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Last.fm source</th>
+      <th>Project schema</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>timestamp.user_id</td>
+      <td>user_id</td>
+      <td>Listener identifier for session aggregation</td>
+    </tr>
+    <tr>
+      <td>timestamp.timestamp</td>
+      <td>sessions, days_since_last_session, returned_within_7_days, listening_time_of_day</td>
+      <td>Temporal listening behavior proxy</td>
+    </tr>
+    <tr>
+      <td>timestamp.artist_name</td>
+      <td>content_variety_score</td>
+      <td>Unique artists as content variety proxy</td>
+    </tr>
+    <tr>
+      <td>plays.plays</td>
+      <td>replay_count, creator_followed, engagement_depth</td>
+      <td>Repeated artist plays as affinity/depth proxy</td>
+    </tr>
+    <tr>
+      <td>userid-profile age/gender/country</td>
+      <td>age, gender, country</td>
+      <td>Demographic analysis only</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Distribution Comparison</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>synthetic_mean</th>
+      <th>synthetic_median</th>
+      <th>synthetic_std</th>
+      <th>lastfm_mean</th>
+      <th>lastfm_median</th>
+      <th>lastfm_std</th>
+      <th>ks_pvalue</th>
+      <th>psi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>high_skip_user</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.0000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>returned_within_7_days</td>
+      <td>0.9928</td>
+      <td>1.0000</td>
+      <td>0.0846</td>
+      <td>0.9940</td>
+      <td>1.0000</td>
+      <td>0.0773</td>
+      <td>1.0000</td>
+      <td>0.0002</td>
+    </tr>
+    <tr>
+      <td>returned_within_3_days</td>
+      <td>0.9928</td>
+      <td>1.0000</td>
+      <td>0.0846</td>
+      <td>0.9940</td>
+      <td>1.0000</td>
+      <td>0.0773</td>
+      <td>1.0000</td>
+      <td>0.0002</td>
+    </tr>
+    <tr>
+      <td>commented</td>
+      <td>0.1068</td>
+      <td>0.0000</td>
+      <td>0.3089</td>
+      <td>0.1000</td>
+      <td>0.0000</td>
+      <td>0.3003</td>
+      <td>1.0000</td>
+      <td>0.0005</td>
+    </tr>
+    <tr>
+      <td>peak_hour_activity</td>
+      <td>0.6044</td>
+      <td>1.0000</td>
+      <td>0.4891</td>
+      <td>0.6200</td>
+      <td>1.0000</td>
+      <td>0.4859</td>
+      <td>0.9999</td>
+      <td>0.0010</td>
+    </tr>
+    <tr>
+      <td>engaged</td>
+      <td>0.9976</td>
+      <td>1.0000</td>
+      <td>0.0489</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>0.0000</td>
+      <td>1.0000</td>
+      <td>0.0187</td>
+    </tr>
+    <tr>
+      <td>shared_content</td>
+      <td>0.1924</td>
+      <td>0.0000</td>
+      <td>0.3943</td>
+      <td>0.2500</td>
+      <td>0.0000</td>
+      <td>0.4334</td>
+      <td>0.1227</td>
+      <td>0.0193</td>
+    </tr>
+    <tr>
+      <td>time_of_day_encoded</td>
+      <td>1.5920</td>
+      <td>2.0000</td>
+      <td>1.0352</td>
+      <td>1.8340</td>
+      <td>2.0000</td>
+      <td>0.8718</td>
+      <td>0.0000</td>
+      <td>0.0221</td>
+    </tr>
+    <tr>
+      <td>creator_followed</td>
+      <td>0.3428</td>
+      <td>0.0000</td>
+      <td>0.4747</td>
+      <td>0.2000</td>
+      <td>0.0000</td>
+      <td>0.4004</td>
+      <td>0.0000</td>
+      <td>0.1050</td>
+    </tr>
+    <tr>
+      <td>sessions</td>
+      <td>40.8400</td>
+      <td>38.0000</td>
+      <td>22.8084</td>
+      <td>50.6059</td>
+      <td>38.0294</td>
+      <td>43.4059</td>
+      <td>0.0051</td>
+      <td>0.1119</td>
+    </tr>
+    <tr>
+      <td>low_completion_user</td>
+      <td>0.0140</td>
+      <td>0.0000</td>
+      <td>0.1175</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.0000</td>
+      <td>0.1338</td>
+    </tr>
+    <tr>
+      <td>liked_content</td>
+      <td>0.9740</td>
+      <td>1.0000</td>
+      <td>0.1592</td>
+      <td>1.0000</td>
+      <td>1.0000</td>
+      <td>0.0000</td>
+      <td>0.9363</td>
+      <td>0.2650</td>
+    </tr>
+    <tr>
+      <td>is_power_listener</td>
+      <td>0.0984</td>
+      <td>0.0000</td>
+      <td>0.2979</td>
+      <td>0.4120</td>
+      <td>0.0000</td>
+      <td>0.4927</td>
+      <td>0.0000</td>
+      <td>0.5831</td>
+    </tr>
+    <tr>
+      <td>engagement_depth</td>
+      <td>1.6160</td>
+      <td>2.0000</td>
+      <td>0.7337</td>
+      <td>1.5500</td>
+      <td>1.0000</td>
+      <td>0.9846</td>
+      <td>0.0000</td>
+      <td>0.6270</td>
+    </tr>
+    <tr>
+      <td>next_episode_played</td>
+      <td>0.7796</td>
+      <td>1.0000</td>
+      <td>0.4146</td>
+      <td>0.9940</td>
+      <td>1.0000</td>
+      <td>0.0773</td>
+      <td>0.0000</td>
+      <td>0.8247</td>
+    </tr>
+    <tr>
+      <td>avg_session_duration</td>
+      <td>89.6697</td>
+      <td>86.8050</td>
+      <td>32.3869</td>
+      <td>121.5161</td>
+      <td>132.9408</td>
+      <td>23.0821</td>
+      <td>0.0000</td>
+      <td>1.2637</td>
+    </tr>
+    <tr>
+      <td>skip_rate</td>
+      <td>0.0800</td>
+      <td>0.0235</td>
+      <td>0.1102</td>
+      <td>0.0071</td>
+      <td>0.0000</td>
+      <td>0.0310</td>
+      <td>0.0000</td>
+      <td>1.3218</td>
+    </tr>
+    <tr>
+      <td>is_premium_content</td>
+      <td>0.1576</td>
+      <td>0.0000</td>
+      <td>0.3644</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.9131</td>
+    </tr>
+    <tr>
+      <td>completion_rate</td>
+      <td>0.8414</td>
+      <td>0.8803</td>
+      <td>0.1556</td>
+      <td>0.9708</td>
+      <td>1.0000</td>
+      <td>0.0594</td>
+      <td>0.0000</td>
+      <td>2.3199</td>
+    </tr>
+    <tr>
+      <td>skip_completion_gap</td>
+      <td>-0.7614</td>
+      <td>-0.8461</td>
+      <td>0.2534</td>
+      <td>-0.9637</td>
+      <td>-1.0000</td>
+      <td>0.0848</td>
+      <td>0.0000</td>
+      <td>2.4982</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Key Finding</h2>
+<p>Synthetic data is not yet a close approximation across all Last.fm proxy features.</p>
+<h2>Recommendations</h2>
+<ul><li>Adjust synthetic feature 'recency_risk_score' because PSI=11.664 vs Last.fm proxy.</li><li>Adjust synthetic feature 'days_since_last_session' because PSI=11.476 vs Last.fm proxy.</li><li>Adjust synthetic feature 'content_affinity_score' because PSI=11.051 vs Last.fm proxy.</li><li>Adjust synthetic feature 'engagement_intensity' because PSI=9.591 vs Last.fm proxy.</li><li>Adjust synthetic feature 'listen_completion_ratio' because PSI=4.960 vs Last.fm proxy.</li><li>Increase Last.fm sampling coverage because the current timestamp sample is sorted by user and small at user level.</li></ul>
+<h2>Figures</h2>
+<ul>
+<li><a href="figures/days_since_last_session_overlay.png">Days since last session overlay</a></li>
+<li><a href="figures/retention_rate_comparison.png">Retention rate comparison</a></li>
+<li><a href="figures/engagement_depth_distribution.png">Engagement depth distribution</a></li>
+<li><a href="figures/listening_time_of_day_heatmap.png">Listening time heatmap</a></li>
+</ul>
+</body></html>

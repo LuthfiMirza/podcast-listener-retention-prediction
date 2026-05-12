@@ -1,0 +1,7 @@
+{
+  "model_name": "random_forest",
+  "target": "at_risk_user",
+  "model_version": "seed-42-at_risk_user-random_forest",
+  "seed": 42,
+  "auc": 0.9803
+}

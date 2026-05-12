@@ -1,0 +1,10 @@
+{
+  "sessions": 18,
+  "avg_session_duration": 24.5,
+  "skip_rate": 0.32,
+  "replay_rate": 0.08,
+  "content_variety_score": 4,
+  "days_since_last_session": 12,
+  "completion_rate": 0.62,
+  "peak_hour_activity": 1
+}

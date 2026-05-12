@@ -1,0 +1,33 @@
+{
+  "project_context": "Noice-inspired podcast, audiobook, radio, and live audio listener retention prediction",
+  "primary_target": "returned_within_7_days",
+  "backward_compatible_target": "engaged",
+  "columns": {
+    "user_id": {"type": "numeric", "description": "Unique synthetic listener identifier.", "noice_relevance": "Allows session-level behavior to be linked to a listener profile.", "example_values": [1, 2, 3]},
+    "content_type": {"type": "categorical", "description": "Primary content format consumed by the listener.", "noice_relevance": "Noice offers podcasts, radio, audiobooks, live content, and video; retention patterns differ by format.", "example_values": ["podcast", "radio", "audiobook", "live", "video"]},
+    "genre": {"type": "categorical", "description": "Content genre/category.", "noice_relevance": "Genre preference captures Indonesian audio trends and improves personalization strategy.", "example_values": ["comedy", "religion", "education", "lifestyle", "horror", "true_crime", "news", "music"]},
+    "episode_duration_minutes": {"type": "numeric", "description": "Length of the consumed episode or content session.", "noice_relevance": "Long-form audiobooks and podcasts require different completion expectations than radio or video clips.", "example_values": [15, 30, 45, 60, 90]},
+    "sessions": {"type": "numeric", "description": "Number of listener sessions.", "noice_relevance": "Frequent sessions indicate stronger listening habit formation.", "example_values": [3, 8, 15]},
+    "avg_session_duration": {"type": "numeric", "description": "Average session duration in minutes.", "noice_relevance": "Longer sessions indicate deeper audio consumption.", "example_values": [12.5, 32.0, 75.0]},
+    "completion_rate": {"type": "numeric", "description": "Share of content completed from 0 to 1.", "noice_relevance": "One of the strongest signals that a listener found the episode valuable.", "example_values": [0.25, 0.72, 0.94]},
+    "skip_rate": {"type": "numeric", "description": "Share of content skipped from 0 to 1.", "noice_relevance": "High skip behavior indicates poor content fit or weak listener intent.", "example_values": [0.05, 0.35, 0.80]},
+    "replay_count": {"type": "numeric", "description": "Number of repeated plays, capped from 0 to 5.", "noice_relevance": "Replays suggest high interest in a segment, creator, or topic.", "example_values": [0, 2, 5]},
+    "replay_rate": {"type": "numeric", "description": "Replay count normalized to 0–1.", "noice_relevance": "Keeps replay behavior compatible with the existing model features.", "example_values": [0.0, 0.4, 1.0]},
+    "next_episode_played": {"type": "binary", "description": "Whether the listener played the next episode.", "noice_relevance": "A strong serial-content retention signal for podcasts and audiobooks.", "example_values": [0, 1]},
+    "creator_followed": {"type": "binary", "description": "Whether the listener followed the creator.", "noice_relevance": "Creator affinity is central for podcast retention and notification strategy.", "example_values": [0, 1]},
+    "liked_content": {"type": "binary", "description": "Whether the listener liked the content.", "noice_relevance": "Explicit positive feedback improves retention targeting and recommendations.", "example_values": [0, 1]},
+    "shared_content": {"type": "binary", "description": "Whether the listener shared the content.", "noice_relevance": "Sharing indicates advocacy and high content resonance.", "example_values": [0, 1]},
+    "commented": {"type": "binary", "description": "Whether the listener commented.", "noice_relevance": "Comments reflect community interaction and stronger attachment.", "example_values": [0, 1]},
+    "is_premium_content": {"type": "binary", "description": "Whether consumed content is premium-gated.", "noice_relevance": "Premium completion can signal monetizable loyalty and subscription intent.", "example_values": [0, 1]},
+    "subscription_status": {"type": "categorical", "description": "Listener subscription tier.", "noice_relevance": "Free and premium listeners respond differently to ads, content gating, and retention campaigns.", "example_values": ["free", "premium_monthly", "premium_yearly"]},
+    "ad_completion_rate": {"type": "numeric", "description": "Ad completion rate for free listeners; NaN for premium listeners.", "noice_relevance": "Ad tolerance affects monetization and free-user experience quality.", "example_values": [0.20, 0.85, null]},
+    "listening_time_of_day": {"type": "categorical", "description": "Dominant listening time segment.", "noice_relevance": "Audio consumption often clusters around commute, evening, and night routines.", "example_values": ["morning", "afternoon", "evening", "night"]},
+    "device_type": {"type": "categorical", "description": "Device used for listening.", "noice_relevance": "Mobile-heavy usage mirrors Indonesian streaming behavior and affects notification timing.", "example_values": ["mobile", "desktop", "smart_speaker"]},
+    "content_variety_score": {"type": "numeric", "description": "Approximate breadth of content categories consumed.", "noice_relevance": "Variety helps identify exploration vs single-creator dependency.", "example_values": [2, 7, 14]},
+    "days_since_last_session": {"type": "numeric", "description": "Days since last listener activity.", "noice_relevance": "Recency is a direct churn-risk indicator.", "example_values": [0, 4, 14]},
+    "peak_hour_activity": {"type": "binary", "description": "Whether activity happens during evening/night peak hours.", "noice_relevance": "Helps campaign timing for audio listening routines.", "example_values": [0, 1]},
+    "returned_within_3_days": {"type": "binary", "description": "Short-window return indicator.", "noice_relevance": "Useful for highly engaged listeners and notification experiments.", "example_values": [0, 1]},
+    "returned_within_7_days": {"type": "binary", "description": "Primary retention target: listener returned within seven days.", "noice_relevance": "A practical retention label for weekly podcast, radio, and audiobook engagement.", "example_values": [0, 1]},
+    "engaged": {"type": "binary", "description": "Backward-compatible engagement label retained for older pipeline components.", "noice_relevance": "Keeps existing training and reporting code stable during the portfolio reframing.", "example_values": [0, 1]}
+  }
+}
