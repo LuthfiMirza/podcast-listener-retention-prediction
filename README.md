@@ -271,6 +271,27 @@ Risk experiment artifacts:
 - `reports/figures/risk_confusion_matrix.png`
 - `reports/figures/risk_roc_curve.png`
 
+
+## 📸 Portfolio Screenshots
+
+These generated reports make the project easier to review visually:
+
+| Risk Confusion Matrix | Risk ROC Curve |
+|---|---|
+| ![Risk confusion matrix](docs/images/risk_confusion_matrix.png) | ![Risk ROC curve](docs/images/risk_roc_curve.png) |
+
+| Threshold Tradeoff | SHAP Top Features |
+|---|---|
+| ![Risk threshold tradeoff](docs/images/risk_threshold_tradeoff.png) | ![SHAP top features](docs/images/shap_top20.png) |
+
+Key HTML reports:
+
+- `reports/model_comparison.html`
+- `reports/risk_model_comparison.html`
+- `reports/external_validation/lastfm_report.html`
+
+Note: raw Last.fm dataset files are intentionally excluded from Git because they are large public external data files.
+
 ## 🔍 Key Insights to Validate
 
 - Skip rate is expected to be a strong predictor of disengagement.
@@ -324,6 +345,15 @@ The API is available at `http://127.0.0.1:8000`.
 - [ ] A/B test simulation for intervention strategy
 - [x] Docker containerization
 
+
+
+## 🗣️ 1-Minute Interview Explanation
+
+Project ini adalah end-to-end machine learning pipeline untuk mendeteksi listener yang berisiko churn pada platform audio streaming. Karena saya tidak punya data internal Noice, saya membuat synthetic listener behavior data, lalu memvalidasi dan mengkalibrasinya menggunakan Last.fm HetRec 2011 sebagai public listening-behavior proxy.
+
+Awalnya saya menggunakan target `returned_within_7_days`, tapi setelah dicek targetnya terlalu imbalance, 99% positif, sehingga F1 menjadi misleading. Saya lalu menambahkan dummy baseline, balanced accuracy, PR-AUC, specificity, dan membuat target bisnis baru yaitu `at_risk_user`.
+
+Model final menggunakan Tuned Random Forest dengan threshold 0.41, menghasilkan ROC-AUC 0.9803, PR-AUC 0.9715, F1 0.9600, balanced accuracy 0.9715, dan mengalahkan dummy baseline. Output model juga sudah tersedia lewat FastAPI dan Docker, sehingga bisa dipakai untuk risk scoring dan rekomendasi tindakan seperti content nudge atau push notification.
 
 ## 💼 Portfolio Summary
 
